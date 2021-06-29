@@ -45,7 +45,7 @@ sur plusieurs lignes"
 
 ; Set
 #{1 2 3}
-#{1 2 3 3}
+;#{1 2 3 3}
 
 {:valeurs [{:valeur 1.23M
             :devise :EUR}
@@ -89,7 +89,8 @@ sur plusieurs lignes"
 ;│                                  │
 ;└──────────────────────────────────┘
 
-; Elles prennent toutes une autre fonction en parametres
+; Elles sont le plus souvent d'ordre supérieur
+; car elles prennent une fonction en paramètre
 
 (map inc [1 2 3])
 
@@ -98,15 +99,19 @@ sur plusieurs lignes"
 (remove even? [1 2 3 4])
 
 
-
 (reduce + [1 2 3 4 5 6 7 8 9])
+;       ↑
+;   fonction de reduction
 
 (reductions + [1 2 3 4 5 6 7 8 9])
+
 (+ (+ (+ (+ (+ (+ (+ (+ 1 2) 3) 4) 5) 6) 7) 8) 9)
 
 ;(+ 1 2 3 4 5 6 7 8 9)
 
 (reduce + 100 [1 2 3 4 5 6 7 8 9])
+;          ↑
+;        Valeur initiale (seed)
 
 (str "a" "b")
 
@@ -122,14 +127,20 @@ sur plusieurs lignes"
 
 (plus-2 2)
 
-;Closure
+;┌────────────────────────────┐
+;│          Closure           │
+;└────────────────────────────┘
+
 (defn plus
   [x]
   (fn [y]
     (+ x y)))
+;      ↑
+;      La valeur de x est capturée lors de la création de la fonction
 
 ((plus 8) 2)
 
+(def plus-8 (plus 8))
 
 
 
