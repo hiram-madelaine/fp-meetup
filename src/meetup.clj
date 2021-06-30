@@ -140,13 +140,15 @@ sur plusieurs lignes"
 
 ((plus 8) 2)
 
-(def plus-8 (plus 8))
+(def +8 (plus 8))
 
 
 
-(def infini (range))
+(def ∞ (range))
 
+(take 10 ∞)
 
+(take 10 (drop 10 ∞))
 
 
 
